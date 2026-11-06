@@ -13,6 +13,7 @@ src/kakao_mcp/
   backends/
     __init__.py             플랫폼 선택과 미지원 환경 안내
     windows_board.py        Windows 톡게시판 UI 조작
+    macos.py                실험적 macOS AX 게시판 어댑터·선택자 진단
     clipboard.py            서식 포함 클립보드 보존·복원
   controller.py             기존 Windows 채팅 도구 구현
   parser.py                 대화 문자열 파싱·링크 추출
@@ -30,20 +31,19 @@ docs/                       사용법과 검증 한계
 
 ## Mac에서 가능한 범위
 
-| 구분 | Windows | macOS/Linux |
-| --- | --- | --- |
-| MCP 서버 시작·기능 진단 | 지원 | 지원 |
-| 공통 로직·파싱·확인값 테스트 | 지원 | 지원 |
-| 카카오톡 채팅·톡게시판 UI 조작 | Windows 어댑터 | **미구현** |
+| 구분 | Windows | macOS | Linux |
+| --- | --- | --- | --- |
+| MCP 서버 시작·공통 로직 | 지원 | 지원 | 지원 |
+| 톡게시판 UI | Windows 어댑터 | 실험적 AX 어댑터, 실기 미검증 | 미지원 |
+| 기존 채팅·이미지·모니터링 | 지원 | 미지원 | 미지원 |
 
 `pywin32`는 Windows에서만 설치합니다. `kakao_capabilities`는 대화를 읽지 않고
-지원 범위를 알려줍니다. Mac에서 UI 도구를 호출하면 미지원 오류로 중단합니다.
-이것은 Mac 카카오톡 기능을 구현하거나 검증했다는 뜻이 아닙니다.
+지원 범위를 알려줍니다. PyObjC는 macOS에만 설치하며 UI 호출 시 지연 import합니다.
 
-Mac 지원을 실제로 추가하려면 macOS 접근성 API 등으로 `open_editor`, `read`,
-`write`, `find_editor`, `read_post`, `draft_snapshot`, `publish`를 구현하는
-어댑터와 Mac 카카오톡에서의 실기 검증이 필요합니다. Windows 창 클래스나 좌표를
-Mac에 재사용할 수 없습니다. 기존 채팅 도구도 별도의 Mac 구현이 필요합니다.
+Mac 어댑터는 `open_editor`, `read`, `write`, `find_editor`, `read_post`,
+`draft_snapshot`, `publish`를 구현합니다. 실제 UI에 맞춘 선택자 프로필과 접근성
+권한이 필요합니다. [Mac 설치·제약·실기 체크리스트](macos.md)에 별도로 정리했습니다.
+등록 버튼 호출 결과는 성공을 추정하지 않고 `published: null`을 반환합니다.
 
 ## 속도와 정확성
 

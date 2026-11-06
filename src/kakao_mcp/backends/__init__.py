@@ -5,8 +5,8 @@ import sys
 class UnsupportedDesktop:
     def __getattr__(self, name):
         raise RuntimeError(
-            "Native KakaoTalk automation is implemented only for Windows. "
-            "macOS adapter is not implemented; common services and diagnostics are available."
+            f"This tool is not implemented for {sys.platform}. "
+            "macOS supports experimental board tools only; see kakao_capabilities."
         )
 
 
@@ -14,6 +14,9 @@ def create_desktop():
     if sys.platform == "win32":
         from .windows_board import Win32BoardDesktop
         return Win32BoardDesktop()
+    if sys.platform == "darwin":
+        from .macos import MacBoardDesktop
+        return MacBoardDesktop()
     return UnsupportedDesktop()
 
 

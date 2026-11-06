@@ -3,7 +3,9 @@
 이 저장소는 [kronenz/kakaotalk-mcp](https://github.com/kronenz/kakaotalk-mcp)의
 MIT 라이선스 fork입니다. v0.3은 톡게시판 기능과 30초 검색 캐시, 플랫폼별 구현
 분리를 추가했습니다. [파일 구성·Mac 지원 범위](docs/architecture.md)를 참고하세요.
-**실제 카카오톡 UI 조작은 현재 Windows 전용**이며, Mac 어댑터는 미구현입니다.
+v0.4는 **실험적 macOS 접근성 게시판 어댑터**를 추가했습니다. 실제 Mac UI는
+미검증이며 로컬 선택자 보정이 필요합니다. [Mac 설치·지원 범위·실기 체크리스트](docs/macos.md)를 참고하세요.
+기존 채팅·이미지·모니터링 도구는 Windows 전용입니다.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -54,6 +56,9 @@ Claude Desktop, Claude Code 등 MCP 클라이언트에서 카카오톡 메시지
 - **Python 3.10** 이상
 
 ## 설치
+
+아래 PyPI 설치 안내는 원본 패키지 기준입니다. 이 fork의 게시판/Mac 확장은
+`https://github.com/YGJangontact/kakaotalk-mcp`를 clone하여 `pip install -e .`로 설치합니다.
 
 ### uvx (권장)
 

@@ -1,3 +1,13 @@
+# 0.4.0
+
+- Add experimental macOS Accessibility board adapter with exact, user-calibrated selectors.
+- Reuse draft preservation, search cache and one-shot publish tokens across platforms.
+- Add read-only AX diagnostics and a separate Mac live-validation checklist.
+- Keep Windows native implementation unchanged; legacy chat tools remain Windows-only.
+- Add fake AX regression tests and native framework import verification on macOS CI.
+- Select the correct virtualenv Python path for global MCP registration on macOS.
+- Mac KakaoTalk UI is not live-verified; publish dispatch returns unknown outcome.
+
 # 0.3.0 — Board workflows and platform separation
 
 - Add board body reading, bounded search, draft preparation and separately confirmed publication.

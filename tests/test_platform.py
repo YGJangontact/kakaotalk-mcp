@@ -25,8 +25,9 @@ def test_server_starts_and_reports_actual_platform_without_ui_actions():
 from kakao_mcp.server import kakao_capabilities
 import sys
 result = kakao_capabilities()
-assert result["native_automation"] == (sys.platform == "win32")
-assert result["macos_native"] is False
+assert result["native_automation"] == (sys.platform in ("win32", "darwin"))
+assert result["macos_native"] == (sys.platform == "darwin")
+assert result["macos_live_verified"] is False
 '''
     result = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
     assert result.returncode == 0, result.stderr

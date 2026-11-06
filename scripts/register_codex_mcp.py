@@ -2,13 +2,14 @@
 import datetime
 import json
 import os
+import sys
 from pathlib import Path
 import tomllib
 
 
 def main():
     root = Path(__file__).resolve().parents[1]
-    python = root / ".venv/Scripts/python.exe"
+    python = root / (".venv/Scripts/python.exe" if sys.platform == "win32" else ".venv/bin/python")
     if not python.is_file():
         raise SystemExit("Create/install the repository virtual environment first")
     config = Path.home() / ".codex/config.toml"
