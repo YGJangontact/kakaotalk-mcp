@@ -6,6 +6,8 @@ PC 카카오톡을 MCP 클라이언트에서 조작하는 로컬 서버입니다
 
 > Mac 카카오톡 UI는 실기 미검증입니다. 접근성 권한과 실제 UI에 맞는 선택자 보정이 필요하며, 필요한 요소가 노출되지 않으면 코드 확장이 필요합니다. Windows 실기 검증도 실제 게시글 등록 직전까지만 수행했습니다.
 
+**Mac의 Codex에서 이어서 설치하려면:** [복사해서 붙여넣는 설치·설정 인계 프롬프트](docs/mac-codex-handoff.md)를 사용하세요. 테스트는 별도 확인 후 진행하며 실제 등록·메시지 전송은 금지하는 조건을 포함합니다.
+
 ## 목차
 
 - [지원 범위](#지원-범위)
@@ -382,5 +384,6 @@ Windows 재설치 명령은 `.\.venv\Scripts\python.exe -m pip install -e .`입�
 - [아키텍처와 검색 캐시](docs/architecture.md)
 - [Windows 게시판 상세 동작·검증 기록](docs/talk-board.md)
 - [Mac 설치·선택자·실기 체크리스트](docs/macos.md)
+- [Mac Codex 설치·설정 인계 프롬프트](docs/mac-codex-handoff.md)
 - [변경 이력](CHANGELOG.md)
 - [원본 저장소](https://github.com/kronenz/kakaotalk-mcp) · [MIT License](LICENSE)
