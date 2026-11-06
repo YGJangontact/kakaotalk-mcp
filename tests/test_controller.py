@@ -4,6 +4,9 @@ import os
 import pytest
 from unittest.mock import patch, MagicMock
 
+if sys.platform != 'win32':
+    pytest.skip('Legacy Windows controller tests', allow_module_level=True)
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from kakao_mcp import controller, config

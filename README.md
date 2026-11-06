@@ -1,5 +1,10 @@
 # KakaoTalk MCP Server
 
+이 저장소는 [kronenz/kakaotalk-mcp](https://github.com/kronenz/kakaotalk-mcp)의
+MIT 라이선스 fork입니다. v0.3은 톡게시판 기능과 30초 검색 캐시, 플랫폼별 구현
+분리를 추가했습니다. [파일 구성·Mac 지원 범위](docs/architecture.md)를 참고하세요.
+**실제 카카오톡 UI 조작은 현재 Windows 전용**이며, Mac 어댑터는 미구현입니다.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Windows](https://img.shields.io/badge/platform-Windows-0078d4.svg)](https://www.microsoft.com/windows)
@@ -9,6 +14,15 @@
 Claude Desktop, Claude Code 등 MCP 클라이언트에서 카카오톡 메시지를 보내고, 읽고, 채팅방을 관리할 수 있습니다.
 
 ## 주요 기능
+
+### 톡게시판 읽기·검색·작성·등록 (로컬 확장)
+
+`kakao_prepare_board_post(room_name, body)`로 게시판 초안을 작성하고,
+`kakao_get_board_draft(room_name)`로 본문을 확인할 수 있습니다.
+읽기·검색과 등록 전 미리보기 도구도 제공합니다. 실제 등록은 별도
+`kakao_publish_board_post` 호출과 일회용 확인값이 필요합니다.
+이번 실기 검증은 **실제 등록 직전까지만** 수행했습니다. 설치·사용 조건·검증 범위는
+[톡게시판 확장 안내](docs/talk-board.md)를 참고하세요.
 
 ### 기본 도구
 

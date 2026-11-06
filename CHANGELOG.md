@@ -1,3 +1,14 @@
+# 0.3.0 — Board workflows and platform separation
+
+- Add board body reading, bounded search, draft preparation and separately confirmed publication.
+- Cache up to eight board scans in memory for 30 seconds; expose age and force-refresh controls.
+- Preserve string/byte clipboard formats including rich text, without overwriting concurrent copies.
+- Separate platform-independent services from the Windows board adapter; add capability diagnostics.
+- Mark pywin32 as Windows-only and pin the existing FastMCP integration to MCP SDK 1.x.
+- Add portable service tests, isolated native tests and explicit non-publishing live checks.
+- Add Windows/macOS/Linux CI. macOS native KakaoTalk automation is not implemented.
+- Actual publication was not live-tested; Windows verification stopped before registration.
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
